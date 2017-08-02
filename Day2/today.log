@@ -1,0 +1,310 @@
+function Employee(){
+console.log("this is Employee ");
+}
+undefined
+typeof Employee;
+"function"
+Employee();
+VM164:2 this is Employee 
+undefined
+var obj = new Employee();
+VM164:2 this is Employee 
+undefined
+typeof obj;
+"object"
+obj instanceof Employee;
+true
+console.dir(Employee);
+VM344:1 function Employee()arguments: nullcaller: nulllength: 0name: "Employee"prototype: Objectconstructor: function Employee()__proto__: Objectconstructor: function Object()hasOwnProperty: function hasOwnProperty()isPrototypeOf: function isPrototypeOf()propertyIsEnumerable: function propertyIsEnumerable()toLocaleString: function toLocaleString()toString: function toString()valueOf: function valueOf()__defineGetter__: function __defineGetter__()__defineSetter__: function __defineSetter__()__lookupGetter__: function __lookupGetter__()__lookupSetter__: function __lookupSetter__()get __proto__: function __proto__()set __proto__: function __proto__()__proto__: function ()apply: function apply()arguments: (...)bind: function bind()call: function call()caller: (...)constructor: function Function()length: 0name: ""toString: function toString()Symbol(Symbol.hasInstance): function [Symbol.hasInstance]()get arguments: function ThrowTypeError()set arguments: function ThrowTypeError()get caller: function ThrowTypeError()set caller: function ThrowTypeError()__proto__: Object[[FunctionLocation]]: <unknown>[[FunctionLocation]]: VM164:1[[Scopes]]: Scopes[1]
+undefined
+Employee.prototype;
+Object {constructor: function}constructor: function Employee()__proto__: Object
+Employee;
+function Employee(){
+console.log("this is Employee ");
+}
+function Employee(id,name,salary){
+this.id = id;
+this.name = name;
+this.salary = salary;
+}
+undefined
+var ram = new Employee(1001,"Ram",9999);
+undefined
+typeof ram;
+"object"
+ram instanceof Employee;
+true
+ram;
+Employee {id: 1001, name: "Ram", salary: 9999}
+var shyam = new Employee(1002,"Shyam",8888);
+undefined
+shyam;
+Employee {id: 1002, name: "Shyam", salary: 8888}
+Employee.prototype.print=function(){
+console.log("Id is "+this.id+" Name is "+this.name+" Salary is "+this.salary);
+}
+function (){
+console.log("Id is "+this.id+" Name is "+this.name+" Salary is "+this.salary);
+}
+ran.print();
+VM726:1 Uncaught ReferenceError: ran is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM726:1
+ram.print();
+VM708:2 Id is 1001 Name is Ram Salary is 9999
+undefined
+shyam.print();
+VM708:2 Id is 1002 Name is Shyam Salary is 8888
+undefined
+var obj2 = {id:1001,name:'MIke',salary:7777};
+undefined
+typeof obj2;
+"object"
+obj2 instanceof Employee;
+false
+obj2 instanceof Object;
+true
+obj2.print();
+VM875:1 Uncaught TypeError: obj2.print is not a function
+    at <anonymous>:1:6
+(anonymous) @ VM875:1
+Employee.prototype.print=function(){
+console.log("Id is "+this.id+" Name is "+this.name+" Salary is "+this.salary);
+}
+function (){
+console.log("Id is "+this.id+" Name is "+this.name+" Salary is "+this.salary);
+}
+function empPrint(){
+console.log(`Id is ${this.id} and Name is ${this.name} and Salary is ${this.salary}`);
+}
+undefined
+Employee.prototype.print=empPrint;
+function empPrint(){
+console.log(`Id is ${this.id} and Name is ${this.name} and Salary is ${this.salary}`);
+}
+function Customer(id,name,balance){
+this.id = id;
+this.name = name;
+this.balance = balance;
+this.print=function(){
+
+}
+}
+undefined
+ram;
+Employee {id: 1001, name: "Ram", salary: 9999}id: 1001name: "Ram"salary: 9999__proto__: Objectprint: function empPrint()constructor: function Employee(id,name,salary)__proto__: Objectconstructor: function Object()hasOwnProperty: function hasOwnProperty()isPrototypeOf: function isPrototypeOf()propertyIsEnumerable: function propertyIsEnumerable()toLocaleString: function toLocaleString()toString: function toString()valueOf: function valueOf()__defineGetter__: function __defineGetter__()__defineSetter__: function __defineSetter__()__lookupGetter__: function __lookupGetter__()__lookupSetter__: function __lookupSetter__()get __proto__: function __proto__()set __proto__: function __proto__()
+shyam
+Employee {id: 1002, name: "Shyam", salary: 8888}
+Employee.prototype.age=21;
+21
+ram.age;
+21
+shyam.age;
+21
+ram.age =22;
+22
+shyam.age;
+21
+ram.pf=12000;
+12000
+shyam.pf;
+undefined
+ram.name;
+"Ram"
+ram.age;
+22
+var x = "age";
+undefined
+ram[x];
+22
+x= "name";
+"name"
+ram[x];
+"Ram"
+x = 10;
+10
+y = 20;
+20
+opr = "+";
+"+"
+var exp = x + opr + y;
+undefined
+exp;
+"10+20"
+eval(exp);
+30
+function jQuery(){
+console.log("this is JQuery ");
+}
+undefined
+var $= jQuery;
+undefined
+$();
+VM1555:2 this is JQuery 
+undefined
+function add(){
+console.log(arguments.length);
+}
+undefined
+add(10);
+VM1640:2 1
+undefined
+add("Hello",10);
+VM1640:2 2
+undefined
+function add(){
+var sum = 0;
+for(let i = 0 ; i<arguments.length; i++){
+ sum = sum + arguments[i];
+}
+return sum;
+}
+undefined
+add(10,20);
+30
+add(1,2,4,10);
+17
+add("10",20,"30");
+"0102030"
+function add(){
+var sum = 0;
+for(let i = 0 ; i<arguments.length; i++){
+ sum = sum + parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add();
+0
+add("100",20,"300");
+420
+add("Hello",10);
+NaN
+parseInt("hello");
+NaN
+isNaN(parseInt("hello"));
+true
+function add(){
+var sum = 0;
+for(let i = 0 ; i<arguments.length; i++){
+ sum = sum + (isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]));
+}
+return sum;
+}
+undefined
+add("Hello",10);
+10
+add("Hello",10,"200",10,"ok");
+220
+add(function(){ return 10;},100);
+100
+function add(){
+var sum = 0;
+for(let i = 0 ; i<arguments.length; i++){
+if(typeof arguments[i]==="function"){
+arguments[i] = arguments[i]();
+}
+ sum = sum + (isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]));
+}
+return sum;
+}
+undefined
+add("Hello",10,"200",10,"ok",function(){return 1;},function(){return 2;});
+223
+function add(){
+var sum = 0;
+
+for(let i = 0 ; i<arguments.length; i++){
+if(typeof arguments[i]==="function"){
+arguments[i] = arguments[i]();
+}
+if(arguments[i] instanceof Array){
+for(let j = 0 ; j<arguments[i].length; j++){
+sum = sum + (isNaN(parseInt(arguments[i][j]))?0:parseInt(arguments[i][j]));
+}
+}
+else{
+ sum = sum + (isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]));
+}
+}
+return sum;
+}
+undefined
+add([1,2],10);
+13
+add([1,2],[5,6],10);
+24
+add([1,2],[5,6],10,function(){return 2;},"Hello","1");
+27
+function sayHello(){
+console.log("Hello ",this.name);
+}
+undefined
+window.sayHello();
+VM2516:2 Hello  
+undefined
+sayHello();
+VM2516:2 Hello  
+undefined
+window.name = "Amit";
+"Amit"
+window.sayHello();
+VM2516:2 Hello  Amit
+undefined
+var object = {name:'Ram'};
+undefined
+object instanceof Window;
+false
+sayHello();
+VM2516:2 Hello  Amit
+undefined
+sayHello.apply(object);
+VM2516:2 Hello  Ram
+undefined
+function sayHello(){
+console.log("Hello ",this.name);
+}
+undefined
+sayHello();
+VM2685:2 Hello  Amit
+undefined
+window.name;
+"Amit"
+sayHello.apply(object);
+VM2685:2 Hello  Ram
+undefined
+function sayHello(){
+console.log("Arguments are ",arguments.length);
+console.log("Hello ",this.name);
+}
+undefined
+sayHello.apply(object,[10,20,30]);
+VM2814:2 Arguments are  3
+VM2814:3 Hello  Ram
+undefined
+sayHello.call(object,10,20,30);
+VM2814:2 Arguments are  3
+VM2814:3 Hello  Ram
+undefined
+var t = sayHello.bind(object);
+undefined
+t(10,20);
+VM2814:2 Arguments are  2
+VM2814:3 Hello  Ram
+undefined
+var d = "hELlo";
+undefined
+d.charAt(0).toUpperCase();
+"H"
+d.charAt(0).toUpperCase() + d.substring(1).toLowerCase();
+"Hello"
+String.prototype.initCap=function(){
+console.log("Init Cap ",this);
+}
+function (){
+console.log("Init Cap ",this);
+}
+d.initCap();
+VM3107:2 Init Cap  String {0: "h", 1: "E", 2: "L", 3: "l", 4: "o", length: 5, [[PrimitiveValue]]: "hELlo"}0: "h"1: "E"2: "L"3: "l"4: "o"length: 5__proto__: String[[PrimitiveValue]]: "hELlo"
+undefined
