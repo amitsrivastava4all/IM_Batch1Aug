@@ -1,0 +1,20 @@
+HTML5 Notification
+var notificationObject = {
+	        body:" Added SuccessFully in the List ",
+	        icon:"images/save.png"
+	    }
+	    var notification;
+	    Notification.requestPermission(function(){
+	       notification = new Notification(“My-Application",notificationObject);
+	    });
+	    document.getElementById("audio").play();
+	    function closeNotification(){
+	        notification.close();
+	        document.getElementById("audio").pause();
+	        document.getElementById("audio").currentTime = 0;
+	    }
+	    setTimeout(closeNotification,7000);
+
+<audio id="audio">
+	    <source src="audio/msg.mp3" type="audio/mp3">
+	</audio>
