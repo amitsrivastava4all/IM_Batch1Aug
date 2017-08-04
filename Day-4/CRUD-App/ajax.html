@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	function doAjax(){
+		var searchTxt = document.getElementById("search").value;
+	//var url = "http://api.giphy.com/v1/gifs/search?q='"+searchTxt+"'&api_key=dc6zaTOxFJmzC";
+	var url = "server.json";
+		var xmlHttpRequest = new XMLHttpRequest();
+	    xmlHttpRequest.onreadystatechange = function(){	
+		console.log("State Change ",xmlHttpRequest.readyState);	
+			if (xmlHttpRequest.readyState == 4) {
+	            if (xmlHttpRequest.status == 200) {
+					//document.getElementById("result").innerHTML=xmlHttpRequest.responseText;
+					var obj = JSON.parse(xmlHttpRequest.responseText);
+					//console.log("Type of ",obj.data);
+						var result = document.getElementById("result");
+					for(var i = 0 ; i<obj.data.length; i++){
+						var img = document.createElement("img");
+						img.src = obj.data[i].images.preview_gif.url;
+						result.appendChild(img);
+					}
+				}
+			}
+	    	
+	}
+		xmlHttpRequest.open("GET", url, true);
+	    xmlHttpRequest.send(null);	
+		console.log("Send Call");
+	}
+	function longProcess(){
+		for(let i = 1; i<1000; i++){
+			for(let j= 1; j<=1000; j++){
+				for(let k = 1; k<=1000; k++){
+					
+				}
+			}
+		}
+		document.getElementById("process").innerHTML = "Process Ends....";
+	}
+		var counter = 1;
+		function sayHello(){
+			document.getElementById("msg").innerHTML = "Hello"+counter;
+			counter++;
+		}
+	</script>
+	
+	
+</head>
+<body>
+<input type="text" placeholder="Type to Search" id="search">
+<div id="result"></div>
+<h1 id="msg"></h1>
+<p id="process"></p>
+	<button onclick="doAjax()">AJAX CALL</button>
+	<button onclick="longProcess()">Long Process</button>
+	<button onclick="sayHello()">Say Hello</button>
+</body>
+</html>
